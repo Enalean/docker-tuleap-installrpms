@@ -2,7 +2,7 @@ FROM centos:centos6
 
 MAINTAINER Thomas Gerbet <thomas.gerbet@enalean.com>
 
-RUN yum install -y createrepo \
+RUN yum install -y openssh-server createrepo \
     epel-release &&\
     yum clean all
 
