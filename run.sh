@@ -3,4 +3,4 @@
 /install.sh
 
 /etc/init.d/tuleap start
-exec bash
+exec curl --insecure --output /output/index.html https://127.0.0.1/
