@@ -2,5 +2,5 @@
 
 /install.sh
 
-/etc/init.d/tuleap start
-exec curl --insecure --output /output/index.html https://127.0.0.1/
+timeout 20s /etc/init.d/tuleap start
+curl --insecure --output /output/index.html https://127.0.0.1/
