@@ -5,6 +5,7 @@ MAINTAINER Thomas Gerbet <thomas.gerbet@enalean.com>
 RUN yum install -y openssh-server \
     createrepo \
     epel-release \
+    centos-release-scl \
     curl && \
     yum clean all
 
