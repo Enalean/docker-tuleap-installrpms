@@ -15,6 +15,7 @@ RUN rpm --import /RPM-GPG-KEY.dag.txt
 COPY rpmforge.repo /etc/yum.repos.d/
 COPY tuleap.repo /etc/yum.repos.d/
 COPY tuleap-local.repo /etc/yum.repos.d/
+COPY centos-vault-rh-php56.repo /etc/yum.repos.d/
 
 COPY install.sh /install.sh
 COPY run.sh /run.sh
