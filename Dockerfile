@@ -5,7 +5,8 @@ RUN yum install -y openssh-server \
     epel-release \
     centos-release-scl \
     curl && \
-    yum clean all
+    yum clean all && \
+    yum install -y http://rpms.remirepo.net/enterprise/remi-release-6.rpm
 
 COPY tuleap.repo /etc/yum.repos.d/
 COPY tuleap-local.repo /etc/yum.repos.d/
