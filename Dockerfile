@@ -1,26 +1,20 @@
-FROM centos:centos6
+FROM centos:6
 
-MAINTAINER Thomas Gerbet <thomas.gerbet@enalean.com>
+COPY tuleap.repo /etc/yum.repos.d/
 
 RUN yum install -y openssh-server \
     createrepo \
     epel-release \
     centos-release-scl \
-    curl && \
-    yum clean all && \
-    yum install -y http://rpms.remirepo.net/enterprise/remi-release-6.rpm
+    curl \
+    https://rpms.remirepo.net/enterprise/remi-release-6.rpm && \
+    yum install -y --disableexcludes=Tuleap tuleap-documentation && \
+    yum clean all
 
-COPY RPM-GPG-KEY.dag.txt /
-RUN rpm --import /RPM-GPG-KEY.dag.txt
-
-COPY rpmforge.repo /etc/yum.repos.d/
-COPY tuleap.repo /etc/yum.repos.d/
 COPY tuleap-local.repo /etc/yum.repos.d/
-COPY centos-vault-rh-php56.repo /etc/yum.repos.d/
 
 COPY install.sh /install.sh
 COPY run.sh /run.sh
-RUN chmod u+x /run.sh && chmod u+x /install.sh
 
 VOLUME ["/output"]
 
