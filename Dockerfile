@@ -1,17 +1,18 @@
 FROM centos:6
 
+COPY tuleap.repo /etc/yum.repos.d/
+
 RUN yum install -y openssh-server \
     createrepo \
     epel-release \
-    centos-release-scl && \
-    yum clean all && \
-    yum install -y http://rpms.remirepo.net/enterprise/remi-release-6.rpm
+    centos-release-scl \
+    https://rpms.remirepo.net/enterprise/remi-release-6.rpm && \
+    yum install -y --disableexcludes=Tuleap tuleap-documentation && \
+    yum clean all
 
-COPY tuleap.repo /etc/yum.repos.d/
 COPY tuleap-local.repo /etc/yum.repos.d/
 
 COPY install.sh /install.sh
 COPY run.sh /run.sh
-RUN chmod u+x /run.sh && chmod u+x /install.sh
 
 ENTRYPOINT ["/run.sh"]
