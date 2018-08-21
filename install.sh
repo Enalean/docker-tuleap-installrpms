@@ -2,7 +2,7 @@
 
 createrepo /rpms/RPMS/noarch/
 
- && yum install -y tuleap-all tuleap-plugin-git-gitolite3
+yum install -y tuleap-all tuleap-plugin-git-gitolite3
 
 timeout 2m /usr/share/tuleap-install/setup.sh --disable-domain-name-check --sys-default-domain='tuleap.test' --sys-org-name='TuleapTest' --sys-long-org-name='TuleapTest'
 if [ "$?" -eq 124 ]; then
