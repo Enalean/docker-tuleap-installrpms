@@ -1,8 +1,19 @@
 #!/bin/bash
-RPM_PATH="/rpms";
 
 createrepo /rpms/RPMS/noarch/
 
-yum install -y --disableexcludes=Tuleap tuleap-documentation && yum install -y tuleap-all tuleap-plugin-git-gitolite3
+systemctl start rh-mysql57-mysqld
 
-/usr/share/tuleap-install/setup.sh --disable-domain-name-check --sys-default-domain='tuleap.test' --sys-org-name='TuleapTest' --sys-long-org-name='TuleapTest'
+yum install -y tuleap-plugin-agiledashboard \
+  tuleap-plugin-graphontrackers \
+  tuleap-theme-burningparrot \
+  tuleap-theme-flamingparrot \
+  tuleap-plugin-git \
+  tuleap-plugin-svn \
+  tuleap-plugin-hudson\*
+
+/usr/share/tuleap/tools/setup.el7.sh \
+    --assumeyes \
+    --configure \
+    --mysql-server='localhost' \
+    --server-name='tuleap.test'

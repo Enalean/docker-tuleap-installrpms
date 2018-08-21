@@ -2,5 +2,4 @@
 
 /install.sh
 
-/etc/init.d/tuleap start
-exec bash
+systemctl start tuleap
