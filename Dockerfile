@@ -31,4 +31,5 @@ COPY run.sh /run.sh
 COPY mysql-server.cnf /etc/opt/rh/rh-mysql57/my.cnf.d/rh-mysql57-mysql-server.cnf
 
 VOLUME [ "/sys/fs/cgroup" ]
+VOLUME [ "/output" ]
 CMD ["/usr/sbin/init"]
