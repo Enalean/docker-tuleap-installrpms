@@ -7,8 +7,8 @@ After=network-online.target
 User=root
 Type=oneshot
 StandardOutput=journal+console
-ExecStart=/run.sh
-ExecStop=/usr/bin/systemctl halt
+ExecStart=-/run.sh
+ExecStopPost=/usr/bin/systemctl halt
 
 [Install]
 WantedBy=multi-user.target
