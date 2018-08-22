@@ -2,6 +2,8 @@ FROM centos:7
 
 ENV container docker
 
+STOPSIGNAL SIGRTMIN+3
+
 COPY tuleap.repo /etc/yum.repos.d/
 COPY install-and-run.service /etc/systemd/system
 
