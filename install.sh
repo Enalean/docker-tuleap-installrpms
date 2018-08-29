@@ -2,6 +2,7 @@
 
 createrepo /rpms/RPMS/noarch/
 
+systemctl start systemd-user-sessions.service
 systemctl start rh-mysql57-mysqld
 
 yum install -y tuleap-plugin-agiledashboard \

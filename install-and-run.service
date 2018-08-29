@@ -2,6 +2,7 @@
 Description=Install and run Tuleap
 After=network.target
 After=network-online.target
+After=default.target
 
 [Service]
 User=root
@@ -10,4 +11,4 @@ StandardOutput=journal+console
 ExecStart=/run.sh
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
