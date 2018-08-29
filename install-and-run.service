@@ -2,6 +2,7 @@
 Description=Install and run Tuleap
 After=network.target
 After=network-online.target
+After=default.target
 
 [Service]
 User=root
@@ -11,4 +12,4 @@ ExecStart=-/run.sh
 ExecStopPost=/usr/bin/systemctl halt
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
