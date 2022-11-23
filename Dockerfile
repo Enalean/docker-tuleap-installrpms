@@ -22,7 +22,7 @@ RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \
         epel-release \
         centos-release-scl \
         https://rpms.remirepo.net/enterprise/remi-release-7.rpm && \
-    yum install -y rh-mysql57-mysql-server && \
+    yum install -y rh-mysql80-mysql-server && \
     yum clean all && \
     rm -rf /var/cache/yum && \
     systemctl enable install-and-run.service
@@ -30,7 +30,7 @@ RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \
 COPY tuleap-local.repo /etc/yum.repos.d/
 COPY install.sh /install.sh
 COPY run.sh /run.sh
-COPY mysql-server.cnf /etc/opt/rh/rh-mysql57/my.cnf.d/rh-mysql57-mysql-server.cnf
+COPY tuleap.cnf /etc/opt/rh/rh-mysql80/my.cnf.d/tuleap.cnf
 
 VOLUME [ "/sys/fs/cgroup" ]
 CMD ["/usr/sbin/init"]
